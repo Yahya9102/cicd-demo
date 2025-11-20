@@ -10,6 +10,7 @@ export type ValidationResult = {
   errors: Partial<Record<keyof SignupData, string>>;
 };
 
+// test
 const emailRegex = /^\S+@\S+\.\S+$/;
 
 export function validateSignupForm(data: SignupData): ValidationResult {
