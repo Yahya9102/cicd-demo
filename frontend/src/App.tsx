@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+
 import SignupForm from './components/SignupForm'
 import './App.css'
 
@@ -8,8 +8,8 @@ function App() {
   
   return (
     <>
-       <div>
-        <p>{secret}</p>
+    <div>
+      <p>{secret}</p>
       <h1>DevOps Demo</h1>
       <h2> Ni ska sätta upp CI/CD för.
         Pipen ska köra tester och bygga projektet innan deploy.</h2>
