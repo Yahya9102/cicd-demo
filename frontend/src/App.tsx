@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+
 import SignupForm from './components/SignupForm'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const secret = import.env.VITE_MYSECRITVARIABLE
+  
+  const secret = import.meta.env.VITE_MYSECRITVARIABLE
   
   return (
     <>
