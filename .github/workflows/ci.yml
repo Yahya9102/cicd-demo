@@ -2,9 +2,9 @@ name: frontend ci
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "newbranch" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "newbranch" ]
 
 
 
