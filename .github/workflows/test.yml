@@ -1,30 +1,32 @@
-name: Node.js CI
+name: Frontend CI
 
 on:
   push:
-    branches: [ "newbranch" ]
+    branches: [ newbranch ]
   pull_request:
-    branches: [ "newbranch" ]
+    branches: [ newbranch ]
 
 jobs:
-  build:
-
+  test-frontend:
     runs-on: ubuntu-latest
+
     defaults:
       run:
-        working-directory: frontend
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        working-directory: frontend   
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm test
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json   # cache korrekt map
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test -- --run
